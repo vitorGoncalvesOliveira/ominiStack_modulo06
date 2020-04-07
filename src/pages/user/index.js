@@ -1,5 +1,5 @@
 import React , { Component } from 'react';
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator , TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { WebView } from 'react-native-webview';
 
@@ -102,12 +102,10 @@ export default class User extends Component {
                             <Starred>
                                 <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
                                 <Info>
-                                    <Title>{item.name} </Title>
-                                    <Author>{item.owner.login}</Author>
-                                    <OpenRepository
-                                        onPress={()=>{ this.openRepository(item)}}>
-                                        <Icon name="web" color="#FFFF" />
-                                    </OpenRepository>
+                                    <TouchableOpacity onPress={() => {this.openRepository(item)}}>
+                                        <Title>{item.name} </Title>
+                                        <Author>{item.owner.login}</Author>
+                                    </TouchableOpacity>
                                 </Info>
                             </Starred>
                         )}
